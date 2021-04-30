@@ -27,7 +27,7 @@ public class Main extends Application {
 		LED greenled = new LED(" ","#7CFC00","#006400");
 		LED yellowled = new LED(" ","#FFFF00","#CCCC00");
 		LED redled = new LED(" ","#FF0000","#8B0000");
-		LED blueled = new LED(" ","#0000FF","#0080FF");
+		LED blueled = new LED(" ","#0080FF","#0000FF");
 		
 		HBox ledhbox = new HBox(greenled,yellowled,redled,blueled);
 
