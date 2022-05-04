@@ -8,6 +8,7 @@ import java.io.IOException;
 public class RestClient {
 
 	private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+	private static final String HOST_URL = "http://localhost:8080";
 
 	private OkHttpClient client;
 	private Gson gson;
@@ -25,7 +26,7 @@ public class RestClient {
 		String requestBody = gson.toJson(accessMessage);
 
 		RequestBody body = RequestBody.create(requestBody, JSON);
-		Request request = new Request.Builder().url(logpath).post(body).build();
+		Request request = new Request.Builder().url(HOST_URL + logpath).post(body).build();
 
 		try {
 			client.newCall(request).execute();
@@ -38,7 +39,7 @@ public class RestClient {
 	
 	public AccessCode doGetAccessCode() {
 
-		Request request = new Request.Builder().url(codepath).build();
+		Request request = new Request.Builder().url(HOST_URL + codepath).build();
 		AccessCode code = null;
 
 		try (Response response = client.newCall(request).execute()) {
